@@ -18,5 +18,5 @@ RUN cat MaxScale/BUILD/install_build_deps.sh|grep -v node > build/install_build_
 RUN cd build && \
         cmake ../MaxScale -DCMAKE_INSTALL_PREFIX=/usr -DBUILD_MAXCTRL=N && \
         make && \
-        make install && \
-        ./postinst
+        make install
+#RUN        ./postinst
