@@ -4,7 +4,7 @@ ENV TZ=Europe/Berlin
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 RUN apt-get update && apt-get install -y cmake sudo nodejs npm \
-		dpkg-dev git wget \
+		dpkg-dev git wget make \
        build-essential libssl-dev ncurses-dev bison flex \
        perl libtool tcl tcl-dev uuid \
        uuid-dev libsqlite3-dev liblzma-dev libpam0g-dev pkg-config \
@@ -25,7 +25,7 @@ RUN cat MaxScale/BUILD/install_build_deps.sh|grep -v node > build/install_build_
 RUN cd build && \
         cmake ../MaxScale -DCMAKE_INSTALL_PREFIX=/usr -DBUILD_MAXCTRL=N 
 # && \
-RUN cd build &&        make 
-# && \
-#        make install
+RUN cd build && \
+       make && \
+       make install
 #RUN        ./postinst
