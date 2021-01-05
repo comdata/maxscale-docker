@@ -33,5 +33,7 @@ jobs:
           push: true
           tags: |
             ghcr.io/comdata/docker-maxscale:latest
+          cache-from: type=registry,ref=ghcr.io/comdata/docker-maxscale:latest
+          cache-to: type=inline
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
