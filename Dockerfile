@@ -23,8 +23,9 @@ RUN cat MaxScale/BUILD/install_build_deps.sh|grep -v node > build/install_build_
  		rm -rf /var/lib/apt/lists/*
 
 RUN cd build && \
-        cmake ../MaxScale -DCMAKE_INSTALL_PREFIX=/usr -DBUILD_MAXCTRL=N
+        cmake ../MaxScale -DCMAKE_INSTALL_PREFIX=/usr -DBUILD_MAXCTRL=N && \
 # && \
-#        make && \
+        make 
+# && \
 #        make install
 #RUN        ./postinst
